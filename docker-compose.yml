@@ -1,0 +1,28 @@
+services:
+  open-webui:
+    image: custom-open-webui
+    container_name: open-webui
+    ports:
+      - "3000:8080"  
+    volumes:
+      - open-webui:/app/backend/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    networks:
+      custom-network:  # Conecta el servicio a la red personalizada
+        ipv4_address: 192.168.100.213
+
+
+volumes:
+  open-webui:
+    driver: local
+
+networks:
+  custom-network:  # Define la red personalizada
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+          gateway: 192.168.100.1
+

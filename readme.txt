@@ -1,0 +1,1 @@
+Este trabajo consiste en usar un repositorio de GitHub y modelarlo para que sea una inteligencia artificial y chill.
